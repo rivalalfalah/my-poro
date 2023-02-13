@@ -9,6 +9,11 @@
     padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
+    border: 1px solid transparent
+}
+
+.main:hover {
+    border: 1px solid black
 }
 
 .name {

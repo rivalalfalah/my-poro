@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import css from "./ListUsers.module.css";
+import { ToastContainer, toast } from "react-toastify";
 
 import ListRepo from "../ListRepo/ListRepo";
 
@@ -15,6 +16,17 @@ function ListUsers(props) {
     axios
       .get(props.repo, {})
       .then((res) => {
+        if (!res.data[0])
+          return toast.error("this user dont have any repository", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         setRepository(res.data);
         setOpen(true);
       })
@@ -29,8 +41,8 @@ function ListUsers(props) {
             <img
               src={props.ava}
               alt="avatar"
-              width={"100%"}
-              height={"100%"}
+              width={"100px"}
+              height={"100px"}
               style={{ borderRadius: "300%" }}
             />
           </div>
@@ -56,6 +68,19 @@ function ListUsers(props) {
             url={e.html_url}
           />
         ))}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

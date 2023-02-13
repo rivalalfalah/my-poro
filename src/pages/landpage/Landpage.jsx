@@ -21,7 +21,7 @@ function Landpage() {
     setInputDisplay(input);
     axios
       .get(
-        `https://api.github.com/search/users?q=${input}&per_page=10&page=${1}`,
+        `${process.env.REACT_APP_URL}?q=${input}&per_page=10&page=${1}`,
         {}
       )
       .then((res) => {
@@ -39,7 +39,7 @@ function Landpage() {
     setLoading(true);
     axios
       .get(
-        `https://api.github.com/search/users?q=${input}&per_page=10&page=${
+        `${process.env.REACT_APP_URL}?q=${input}&per_page=10&page=${
           page + 1
         }`,
         {}
@@ -74,7 +74,7 @@ function Landpage() {
     setPage(page - 1);
     axios
       .get(
-        `https://api.github.com/search/users?q=${input}&per_page=10&page=${
+        `${process.env.REACT_APP_URL}?q=${input}&per_page=10&page=${
           page - 1
         }`,
         {}
@@ -90,6 +90,7 @@ function Landpage() {
       });
   };
 
+  document.title = "search github app"
   return (
     <>
       <main className={css.main}>

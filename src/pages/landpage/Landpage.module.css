@@ -20,6 +20,12 @@
   color: #d9dddc;
   font-size: larger;
   margin-top: 20px;
+  border: 2px solid transparent;
+}
+
+.btn_search:hover {
+  border: 2px solid black;
+  color: #000000;
 }
 
 .input {
@@ -41,7 +47,7 @@
   font-family: Arial, sans-serif;
   font-weight: 100;
   font-size: 1.1em;
-  color: #a3e1f0;
+  color: #000000;
 }
 
 .Loading > span {
